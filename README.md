@@ -61,7 +61,25 @@ diff examples/P0DL07_optimised.pdb P0DL07_test/optimised_PDB/P0DL07_optimised.pd
 ```
 Please note that the resulting structures may vary slightly. This is due to numerical instabilities caused by running on different hardware.
 
+## Running the calculation in the Docker container
+
+```bash
+# Build Docker container
+docker build -t local/proptimus .
+
+# Create folder for the results
+mkdir results
+
+# Run the computation
+docker run --rm --name proptimus \
+  -v ./examples:/opt/proptimus/examples \
+  -v ./results:/opt/proptimus/results \
+  local/proptimus \
+  python raphan.py --PDB_file examples/P0DL07.pdb --data_dir results/P0DL07
+```
+
 ## Reproduction of test results from the publication about PROPTIMUS RAPHAN
+
 The comparison_scripts directory contains several Python scripts for reproducing the results from the publication. To run the scripts, you need to download and unzip the calculation.zip file from [supplementary files](https://onedata.e-infra.cz/ozw/onezone/i#/public/shares/baa17140ec395e18bd97e089d1c7b683ch7f7a).
 
 ## License
