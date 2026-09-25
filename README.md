@@ -69,6 +69,8 @@ Please note that the resulting structures may vary slightly. This is due to nume
 ```bash
 # Build Docker container
 docker build -t local/proptimus .
+# or download the image from the registry
+docker pull cerit.io/ceitec-biodata-pub/proptimus-raphan:latest
 
 # Create folder for the results
 mkdir results
